@@ -13,6 +13,9 @@ public class LevelGenerator : MonoBehaviour {
     public NavMeshSurface surface;
     public GameObject player;
     public GameObject level;
+    public List<GameObject> Trees;
+    public List<GameObject> GeneratedTrees;
+
 
     // Use this for initialization
     void Start () {
@@ -25,8 +28,7 @@ public class LevelGenerator : MonoBehaviour {
         {
             for (int x = 0; x < (GridSize); x++)
             {
-                GameObject tile = GenerateTile(x, y);
-                GeneratedTiles.Add(tile);
+                GenerateTile(x, y);
 
             }
         }
@@ -39,7 +41,7 @@ public class LevelGenerator : MonoBehaviour {
 	void Update () {
 
     }
-    public GameObject GenerateTile(int x, int y)
+    public void GenerateTile(int x, int y)
     {
         GameObject tile = null;
             
@@ -60,13 +62,21 @@ public class LevelGenerator : MonoBehaviour {
         else if (noise > 0.6 && noise <= 1)
         {
             temp = 3;
+            if(Random.Range(0, 100) >= 90)
+            {
+                GameObject tree = Instantiate(Trees[Random.Range(0, 3)]);
+                tree.transform.position = new Vector3(x * 1, temp + 0.45f, y * 1);
+                tree.transform.Rotate(0, Random.Range(0, 360), 0);
+                tree.transform.parent = level.transform;
+                GeneratedTrees.Add(tree);
+            }
         }
 
         tile = Instantiate(Tiles[(int)temp]);
         tile.transform.parent = level.transform;
         tile.transform.position = new Vector3(x * 1, temp, y * 1);
         tile.name = y + "-" + x + "-" + temp;
-        return tile;
+        GeneratedTiles.Add(tile);
 
     }
 
