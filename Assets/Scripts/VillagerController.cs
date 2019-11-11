@@ -36,7 +36,7 @@ public class VillagerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentVillager.Food -= Time.deltaTime * 1;
+        CurrentVillager.Food -= Time.deltaTime * 0.5f;
         Food = CurrentVillager.Food;
         Cargo = CurrentVillager.Cargo;
 
@@ -59,70 +59,8 @@ public class VillagerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
-        if (!CurrentVillager.GettingFood && CurrentVillager.GetType().Name == "Harvester" && other.tag == "Grain")
-        {
-            if (CurrentVillager.Cargo <= CurrentVillager.CollectionCap)
-            {
-                CurrentVillager.Cargo += Time.deltaTime * 2;
-
-            }
-        }
-        if (!CurrentVillager.GettingFood && CurrentVillager.GetType().Name == "WoodCutter" && other.tag == "Tree")
-        {
-            if (CurrentVillager.Cargo <= CurrentVillager.CollectionCap)
-            {
-                CurrentVillager.Cargo += Time.deltaTime * 2;
-
-            }
-        }
-        if (!CurrentVillager.GettingFood && CurrentVillager.GetType().Name == "WoodCutter" && other.tag == "WoodPile")
-        {
-            resourceController.StoredWood += (int)CurrentVillager.Cargo;
-            CurrentVillager.Cargo = 0;
-            CurrentVillager.DepostingCargo = false;
-        }
-        if (!CurrentVillager.GettingFood && CurrentVillager.GetType().Name == "Harvester" && other.tag == "Mill")
-        {
-            resourceController.StoredFood += (int)CurrentVillager.Cargo;
-            CurrentVillager.Cargo = 0;
-            CurrentVillager.DepostingCargo = false;
-
-        }
-        if (other.tag == "Mill" && CurrentVillager.GettingFood)
-        {
-            float temp;
-            temp = CurrentVillager.MaxFood - CurrentVillager.Food;
-            resourceController.StoredFood -= (int)temp;
-            CurrentVillager.Food += temp;
-            CurrentVillager.GettingFood = false;
-        }
+        CurrentVillager.DoJob(other, resourceController);
+        CurrentVillager.Deposit(other, resourceController);
+        CurrentVillager.ConsumeFood(other, resourceController);
     }
-    //private void o(Collision collision)
-    //{
-
-    //    if (!CurrentVillager.GettingFood && CurrentVillager.GetType().Name == "Harvester" && collision.collider.tag == "Grain")
-    //    {
-    //        if(CurrentVillager.Cargo <= CurrentVillager.CollectionCap)
-    //        {
-    //            CurrentVillager.Cargo += Time.deltaTime * 10;
-                
-    //        }
-    //    }
-    //    if (!CurrentVillager.GettingFood && CurrentVillager.GetType().Name == "Harvester" && collision.collider.tag == "Mill")
-    //    {
-    //        resourceController.StoredFood += (int)CurrentVillager.Cargo;
-    //        CurrentVillager.Cargo = 0;
-    //        CurrentVillager.DepostingCargo = false;
-
-    //    }
-    //    if (collision.collider.tag == "Mill" && CurrentVillager.GettingFood)
-    //    {
-    //        float temp;
-    //        temp = CurrentVillager.MaxFood - CurrentVillager.Food;
-    //        resourceController.StoredFood -= (int)temp;
-    //        CurrentVillager.Food += temp;
-    //        CurrentVillager.GettingFood = false;
-    //    }
-    //}
 }

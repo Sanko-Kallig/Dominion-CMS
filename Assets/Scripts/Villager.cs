@@ -57,4 +57,23 @@ public class Villager
         }
         return closest;
     }
+    public virtual void DoJob(Collider other, ResourceController resourceController)
+    {
+
+    }
+    public virtual void Deposit(Collider other, ResourceController resourceController)
+    {
+
+    }
+    public void ConsumeFood(Collider other, ResourceController resourceController)
+    {
+        if (other.tag == "Mill" && GettingFood)
+        {
+            float temp;
+            temp = MaxFood - Food;
+            resourceController.StoredFood -= (int)temp;
+            Food += temp;
+            GettingFood = false;
+        }
+    }
 }

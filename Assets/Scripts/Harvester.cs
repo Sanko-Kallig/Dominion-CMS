@@ -15,4 +15,23 @@ public class Harvester : Villager
     {
         return FindClosestGameObject("Mill");
     }
+
+    public override void DoJob(Collider other, ResourceController resourceController)
+    {
+        if (Cargo <= CollectionCap && other.tag == "Grain")
+        {
+            Cargo += Time.deltaTime * 2;
+
+        }
+    }
+    public override void Deposit(Collider other, ResourceController resourceController)
+    {
+        if (!GettingFood && other.tag == "Mill")
+        {
+            resourceController.StoredFood += (int)Cargo;
+            Cargo = 0;
+            DepostingCargo = false;
+
+        }
+    }
 }
