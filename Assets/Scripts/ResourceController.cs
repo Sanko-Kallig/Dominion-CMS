@@ -5,15 +5,20 @@ using UnityEngine.UI;
 public class ResourceController : MonoBehaviour
 {
     public float StoredFood;
-    public Text score;
+    public float StoredWood;
+    public Text ScoreFood;
+    public Text ScoreWood;
+    public Text ScoreStone;
 
     private void Start()
     {
-        score.text = StoredFood.ToString();
+        ScoreFood.text = "Food: " + StoredFood.ToString();
+        ScoreWood.text = "Wood: " + StoredWood.ToString();
     }
     private void Update()
     {
-        score.text = StoredFood.ToString();
+        ScoreFood.text = "Food: " + StoredFood.ToString();
+        ScoreWood.text = "Wood: " + StoredWood.ToString();
     }
 
 

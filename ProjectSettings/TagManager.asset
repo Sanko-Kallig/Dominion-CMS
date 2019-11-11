@@ -8,6 +8,8 @@ TagManager:
   - Building
   - Mill
   - Grain
+  - WoodPile
+  - Tree
   layers:
   - Default
   - TransparentFX
