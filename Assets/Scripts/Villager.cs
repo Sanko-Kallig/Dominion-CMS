@@ -9,7 +9,7 @@ public class Villager
     public float Comfort;
     public float Cargo;
     public float CollectionCap;
-    public enum Job { Harvester, Woodcutter, StoneCutter};
+    public enum Job { Harvester, Woodcutter, StoneCutter, Villager};
     public Job VillagerJob;
     public bool GettingFood;
     public bool DepostingCargo;
@@ -69,9 +69,13 @@ public class Villager
     {
         if (other.tag == "Mill" && GettingFood)
         {
+            if(resourceController.StoredFood > 0 )
+            {
+
+            }
             float temp;
             temp = MaxFood - Food;
-            resourceController.StoredFood -= (int)temp;
+            resourceController.StoredFood -= Mathf.Clamp( (int)temp, 0, Mathf.Infinity);
             Food += temp;
             GettingFood = false;
         }

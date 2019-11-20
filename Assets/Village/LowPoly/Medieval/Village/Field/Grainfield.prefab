@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5855555305188165587}
   - component: {fileID: 5855555305188165588}
   - component: {fileID: 5855555305188165590}
+  - component: {fileID: -369460954996694346}
   m_Layer: 11
   m_Name: Grainfield
   m_TagString: Grain
@@ -93,3 +94,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 1311af2a8af20944697230e500e52688, type: 2}
+--- !u!114 &-369460954996694346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5855555305188165591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a534fbce724c642b7b6108f5270974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durablity: 200

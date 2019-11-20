@@ -6,12 +6,11 @@ using UnityEngine.Networking;
 
 public class LevelGenerator : MonoBehaviour {
     public int GridSize;
-    public List<GameObject> Tiles;
-    public List<GameObject> GeneratedTiles;
+    public List<GameObject> Blocks;
+    public List<GameObject> GeneratedBlocks;
     public float Scale;
     private float[,] noiseMap;
     public NavMeshSurface surface;
-    public GameObject player;
     public GameObject level;
     public List<GameObject> Trees;
     public List<GameObject> GeneratedTrees;
@@ -28,25 +27,24 @@ public class LevelGenerator : MonoBehaviour {
         {
             for (int x = 0; x < (GridSize); x++)
             {
-                GenerateTile(x, y);
+                GenerateBlock(x, y);
 
             }
         }
         surface.BuildNavMesh();
-        Vector3 pos = new Vector3(0, 0, 0);
-        Instantiate(player, pos, Quaternion.identity);
     }
 	
 	// Update is called once per frame
 	void Update () {
 
     }
-    public void GenerateTile(int x, int y)
+    public void GenerateBlock(int x, int y)
     {
-        GameObject tile = null;
-            
+        GameObject block = null;
+        //Retrieve the noise value for this specific key, key combination    
         float noise = noiseMap[x, y];
         float temp = 0;
+        //Converts the noise into workable values for blockbased terrain generation
         if (noise <= 0.2)
         {
             temp = 0;
@@ -58,11 +56,8 @@ public class LevelGenerator : MonoBehaviour {
         else if (noise > 0.4 && noise <= 0.6)
         {
             temp = 2;
-        }
-        else if (noise > 0.6 && noise <= 1)
-        {
-            temp = 3;
-            if(Random.Range(0, 100) >= 90)
+            //Spawns trees on this specific level only
+            if (Random.Range(0, 100) >= 90)
             {
                 GameObject tree = Instantiate(Trees[Random.Range(0, 3)]);
                 tree.transform.position = new Vector3(x * 1, temp + 0.45f, y * 1);
@@ -71,48 +66,20 @@ public class LevelGenerator : MonoBehaviour {
                 GeneratedTrees.Add(tree);
             }
         }
-
-        tile = Instantiate(Tiles[(int)temp]);
-        tile.transform.parent = level.transform;
-        tile.transform.position = new Vector3(x * 1, temp, y * 1);
-        tile.name = y + "-" + x + "-" + temp;
-        GeneratedTiles.Add(tile);
-
-    }
-
-    public List<GameObject> SelectTiles(GameObject origin, int range)
-    {
-        List<GameObject> selectedTiles = new List<GameObject>();
-
-        string[] elements = origin.name.Split('-');
-
-        int minX = int.Parse(elements[0]) - range;
-        int maxX = int.Parse(elements[0]) + range;
-        int minZ = int.Parse(elements[1]) - range;
-        int maxZ = int.Parse(elements[1]) + range;
-
-        foreach (GameObject tile in GeneratedTiles)
+        else if (noise > 0.6 && noise <= 1)
         {
-            elements = tile.name.Split('-');
-            int x = int.Parse(elements[0]);
-            int z = int.Parse(elements[1]);
-
-            if (x >= minX && x <= maxX)
-            {
-                if (z >= minZ && z <= maxZ)
-                {
-                    if (origin != tile)
-                    {
-                        selectedTiles.Add(tile);
-                    }
-                }
-            }
+            temp = 3;
         }
 
-        return selectedTiles;
+        block = Instantiate(Blocks[(int)temp]);
+        block.transform.parent = level.transform;
+        block.transform.position = new Vector3(x * 1, temp, y * 1);
+        block.name = y + "-" + x + "-" + temp;
+        GeneratedBlocks.Add(block);
+
     }
 
-
+    //Generates a noise map used for terrain height generation
     public static float[,] GenerateNoiseMap(int mapWidth, int mapHeight, float scale)
     {
         float[,] noiseMap = new float[mapWidth, mapHeight];

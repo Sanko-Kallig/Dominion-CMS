@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 378026640907899421}
   - component: {fileID: 1438686963}
   - component: {fileID: 1438686965}
+  - component: {fileID: 8190874658308685188}
   m_Layer: 11
   m_Name: StackOfWood
   m_TagString: WoodPile
@@ -248,12 +249,34 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1, y: 1.5, z: 1}
+  m_Extents: {x: 1, y: 1, z: 1}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.5, y: 1, z: 0.5}
   m_TimeToStationary: 0.5
+--- !u!114 &8190874658308685188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378026640907899420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ffe5de66fcf8d54a90c1c445ecc52dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WorkerCap: 2
+  WoodCutter: {fileID: 4401950750592347625, guid: 06e9fa248ef6dea4aa1ef3a627015454,
+    type: 3}
+  Harvester: {fileID: 3324304762986005295, guid: 2596219182e592e4ba7751aea8bc9633,
+    type: 3}
+  StoneCutter: {fileID: 4387503294430263436, guid: 71a81535834266244b0e08f167d085a2,
+    type: 3}
+  workType: 0
+  isPlaced: 0
+  WorkerCount: 0
 --- !u!1 &378026641065052764
 GameObject:
   m_ObjectHideFlags: 0

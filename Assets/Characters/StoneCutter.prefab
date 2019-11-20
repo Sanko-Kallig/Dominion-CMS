@@ -231,7 +231,7 @@ MonoBehaviour:
   Food: 0
   Cargo: 0
   resourceController: {fileID: 0}
-  character: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!195 &4387503294430263473
 NavMeshAgent:
   m_ObjectHideFlags: 0

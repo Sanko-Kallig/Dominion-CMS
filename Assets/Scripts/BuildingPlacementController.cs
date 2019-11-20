@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingPlacementController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BuildingPlacementController : MonoBehaviour
     [SerializeField]
     private LayerMask placeableObjectTerrain;
 
+    public VillageResourceController villageResourceController;
     [SerializeField]
     private KeyCode VillageHouse = KeyCode.A;
     [SerializeField]
@@ -91,11 +93,39 @@ public class BuildingPlacementController : MonoBehaviour
 
     private void ReleaseIfClicked()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && currentPlaceableObject != null)
         {
-            currentPlaceableObject = null;
+            if (currentPlaceableObject.name == "CampFire(Clone)")
+            {
+                GameObject button = GameObject.Find("btnFirePlace");
+                button.GetComponent<Button>().interactable = false;
+                currentPlaceableObject.GetComponent<VillageController>().IsPlaced = true;
+                currentPlaceableObject = null;
+            }
+            else if(currentPlaceableObject.name == "Mill(Clone)")
+            {
+                if(villageResourceController.StoredWood > 100)
+                {
+                    currentPlaceableObject.GetComponent<BuildingController>().isPlaced = true;
+                    villageResourceController.StoredWood -= 100;
+                    currentPlaceableObject = null;
+                }
+                
+            }
+            else if (currentPlaceableObject.name == "StackOfWood(Clone)")
+            {
+                
+                currentPlaceableObject.GetComponent<BuildingController>().isPlaced = true;
+                currentPlaceableObject = null;
+            }
+            else
+            {
+                currentPlaceableObject = null;
+            }
+                
+
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && currentPlaceableObject != null)
         {
             Destroy(currentPlaceableObject);
             currentPlaceableObject = null;
