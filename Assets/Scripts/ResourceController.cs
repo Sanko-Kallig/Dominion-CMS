@@ -1,25 +1,22 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class ResourceController : MonoBehaviour
 {
-    public float StoredFood;
-    public float StoredWood;
-    public Text ScoreFood;
-    public Text ScoreWood;
-    public Text ScoreStone;
-
-    private void Start()
+    public float durablity;
+    // Start is called before the first frame update
+    void Start()
     {
-        ScoreFood.text = "Food: " + StoredFood.ToString();
-        ScoreWood.text = "Wood: " + StoredWood.ToString();
-    }
-    private void Update()
-    {
-        ScoreFood.text = "Food: " + StoredFood.ToString();
-        ScoreWood.text = "Wood: " + StoredWood.ToString();
+        durablity = 100;
     }
 
-
+    // Update is called once per frame
+    void Update()
+    {
+        if(durablity <= 0)
+        {
+            Destroy(transform.gameObject);
+        }
+    }
 }

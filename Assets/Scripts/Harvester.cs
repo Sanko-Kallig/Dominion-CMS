@@ -16,7 +16,7 @@ public class Harvester : Villager
         return FindClosestGameObject("Mill");
     }
 
-    public override void DoJob(Collider other, ResourceController resourceController)
+    public override void DoJob(Collider other, VillageResourceController resourceController)
     {
         if (Cargo <= CollectionCap && other.tag == "Grain")
         {
@@ -24,7 +24,7 @@ public class Harvester : Villager
 
         }
     }
-    public override void Deposit(Collider other, ResourceController resourceController)
+    public override void Deposit(Collider other, VillageResourceController resourceController)
     {
         if (!GettingFood && other.tag == "Mill")
         {

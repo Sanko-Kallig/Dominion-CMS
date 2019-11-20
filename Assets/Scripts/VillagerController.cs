@@ -10,7 +10,8 @@ public class VillagerController : MonoBehaviour
     public Villager.Job CurrentVillagerJob;
     public float Food;
     public float Cargo;
-    public ResourceController resourceController;
+    public VillageResourceController resourceController;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {

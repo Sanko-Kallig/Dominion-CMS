@@ -175,7 +175,7 @@ Animator:
   m_GameObject: {fileID: 4387503294430263436}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: df38d25b6fd39b44eacfb4a2b784547c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd79b16b8037c1b48ba7c6b5058d62fb, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
   Food: 0
   Cargo: 0
   resourceController: {fileID: 0}
+  character: {fileID: 0}
 --- !u!195 &4387503294430263473
 NavMeshAgent:
   m_ObjectHideFlags: 0

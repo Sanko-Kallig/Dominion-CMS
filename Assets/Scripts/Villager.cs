@@ -57,15 +57,15 @@ public class Villager
         }
         return closest;
     }
-    public virtual void DoJob(Collider other, ResourceController resourceController)
+    public virtual void DoJob(Collider other, VillageResourceController resourceController)
     {
 
     }
-    public virtual void Deposit(Collider other, ResourceController resourceController)
+    public virtual void Deposit(Collider other, VillageResourceController resourceController)
     {
 
     }
-    public void ConsumeFood(Collider other, ResourceController resourceController)
+    public void ConsumeFood(Collider other, VillageResourceController resourceController)
     {
         if (other.tag == "Mill" && GettingFood)
         {

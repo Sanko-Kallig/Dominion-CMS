@@ -15,19 +15,23 @@ public class WoodCutter : Villager
     {
         return FindClosestGameObject("WoodPile");
     }
-    public override void DoJob(Collider other, ResourceController resourceController)
+    public override void DoJob(Collider other, VillageResourceController resourceController)
     {
         if (Cargo <= CollectionCap && other.tag == "Tree")
         {
             Cargo += Time.deltaTime * 2;
-
+            ResourceController resource = other.GetComponent<ResourceController>();
+            if (resource != null)
+            {
+                resource.durablity -= Time.deltaTime * 2;
+            }
         }
     }
-    public override void Deposit(Collider other, ResourceController resourceController)
+    public override void Deposit(Collider other, VillageResourceController resourceController)
     {
         if (!GettingFood && other.tag == "WoodPile")
         {
-            resourceController.StoredFood += (int)Cargo;
+            resourceController.StoredWood += (int)Cargo;
             Cargo = 0;
             DepostingCargo = false;
 

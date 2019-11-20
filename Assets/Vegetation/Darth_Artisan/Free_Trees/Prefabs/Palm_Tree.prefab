@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3339706}
   - component: {fileID: 2355238}
   - component: {fileID: -3142285613572503870}
+  - component: {fileID: 219090430855388403}
   m_Layer: 0
   m_Name: Palm_Tree
   m_TagString: Untagged
@@ -95,3 +96,15 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.347, y: 2.71, z: -0.45700002}
   m_TimeToStationary: 0.5
+--- !u!114 &219090430855388403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a534fbce724c642b7b6108f5270974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
