@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33433269042807706}
   - component: {fileID: 65822349523989926}
   - component: {fileID: 23252884826025994}
-  - component: {fileID: 114077655577469376}
   m_Layer: 10
   m_Name: Grass
   m_TagString: Tile
@@ -94,19 +93,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &114077655577469376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156775102722896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83843dbf5f17a464ba095afa943ebf4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Unit: {fileID: 0}
 --- !u!1 &6625347108897023397
 GameObject:
   m_ObjectHideFlags: 0

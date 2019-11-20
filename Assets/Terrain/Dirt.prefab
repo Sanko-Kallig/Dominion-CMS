@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33899431597503028}
   - component: {fileID: 65603875696343030}
   - component: {fileID: 23553266141714656}
-  - component: {fileID: 114520550084249712}
   m_Layer: 10
   m_Name: Dirt
   m_TagString: Tile
@@ -94,19 +93,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &114520550084249712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012329920820800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83843dbf5f17a464ba095afa943ebf4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Unit: {fileID: 0}
 --- !u!1 &8853605826356097328
 GameObject:
   m_ObjectHideFlags: 0

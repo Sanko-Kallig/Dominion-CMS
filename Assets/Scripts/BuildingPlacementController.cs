@@ -104,7 +104,7 @@ public class BuildingPlacementController : MonoBehaviour
             }
             else if(currentPlaceableObject.name == "Mill(Clone)")
             {
-                if(villageResourceController.StoredWood > 100)
+                if(villageResourceController.StoredWood >= 100)
                 {
                     currentPlaceableObject.GetComponent<BuildingController>().isPlaced = true;
                     villageResourceController.StoredWood -= 100;
@@ -117,6 +117,15 @@ public class BuildingPlacementController : MonoBehaviour
                 
                 currentPlaceableObject.GetComponent<BuildingController>().isPlaced = true;
                 currentPlaceableObject = null;
+            }
+            else if (currentPlaceableObject.name == "Grainfield(Clone)")
+            {
+
+                if (villageResourceController.StoredWood >= 10)
+                {
+                    villageResourceController.StoredWood -= 10;
+                    currentPlaceableObject = null;
+                }
             }
             else
             {

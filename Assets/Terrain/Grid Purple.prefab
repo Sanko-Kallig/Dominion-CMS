@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33041958658705148}
   - component: {fileID: 65202765917499012}
   - component: {fileID: 23585167722402252}
-  - component: {fileID: 114542560818135168}
   m_Layer: 10
   m_Name: Grid Purple
   m_TagString: Tile
@@ -94,19 +93,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &114542560818135168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361365549490292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83843dbf5f17a464ba095afa943ebf4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Unit: {fileID: 0}
 --- !u!1 &5320557214811440640
 GameObject:
   m_ObjectHideFlags: 0
